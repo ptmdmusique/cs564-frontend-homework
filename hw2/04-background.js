@@ -1,7 +1,7 @@
 // Add your code here
 const START_CLASS = "btn-primary";
 const STOP_CLASS = "btn-danger";
-const BASE_TRANSITION_DURATION = 500;
+const BASE_TRANSITION_DURATION = 3000;
 const BASE_BACKGROUND_CLASS = "bg-primary";
 
 const input = document.querySelector("#interval");
