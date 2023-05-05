@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+$theme: (
+  --text-base: "rgb(32, 41, 57)",
+  --text-primary: "rgb(110, 65, 254)",
+  --text-secondary: "rgb(105, 117, 134)",
+  // TODO: determine this
+  --text-inverted: "rgb(247, 250, 252)",
+  // TODO: determine this
+  --fill: "rgb(83, 178, 255)",
+
+  --background: "rgb(248, 250, 252)",
+  --background-top: "rgb(255, 255, 255)",
+  // TODO: determine this
+  --background-overflow-menu: "rgb(226, 232, 240)",
+  // TODO: determine this
+  --background-active: "rgb(226, 232, 240)",
+
+  // Other
+  --danger: "rgb(169, 30, 41)",
+  --success: "rgb(36, 86, 48)",
+  --warning: "rgb(92, 70, 0)",
+  --info: "rgb(29, 84, 94)",
+  // TODO: determine this
+  --default: "rgb(0, 0, 0)",
+  --exquisite: "rgb(131, 6, 193)",
+  // TODO: determine this
+  --disabled: "rgb(235, 235, 235)",
+
+  --git: "rgb(194, 45, 15)",
+
+  // Special
+  --linkedin: "rgb(0, 119, 181)",
+  --github: "rgb(0, 0, 0)",
+  --portfolio: "rgb(255, 255, 254)",
+  // Routes
+  --home: "rgb(194, 24, 91)",
+  --resume: "rgb(2, 99, 157)",
+  --projects: "rgb(121, 100, 34)",
+  --contact: "rgb(105, 86, 150)",
+);
+
+/// Replace `$search` with `$replace` in `$string`
+/// @author Kitty Giraudel
+/// @param {String} $string - Initial string
+/// @param {String} $search - Substring to replace
+/// @param {String} $replace ('') - New value
+/// @return {String} - Updated string
+@function str-replace($string, $search, $replace: "") {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace +
+      str-replace(
+        str-slice($string, $index + str-length($search)),
+        $search,
+        $replace
+      );
+  }
+
+  @return $string;
+}
+
+@function get-color-value($color) {
+  @return #{unquote(str-replace(str-replace($color, "rgb(", ""), ")", ""))};
+}
+
+@mixin extract-color-map($map) {
+  @each $key, $value in $map {
+    #{$key}: #{get-color-value($value)};
+  }
+}
+
+body {
+  @include extract-color-map($theme);
+  @apply text-skin-default;
+  @apply overflow-x-hidden;
+  @apply min-h-screen;
+  @apply bg-skin-top;
+  @apply relative;
+
+  --mobile-content-padding: theme(padding.5);
+  --desktop-content-padding: theme(padding.6);
+  --content-max-width: 70rem;
+
+  #__next {
+    @apply w-full h-screen;
+    @apply pb-16; // ! same as footer height
+
+    @screen lg {
+      @apply flex;
+      @apply pb-0;
+    }
+
+    > .app-content {
+      @apply overflow-y-auto overflow-x-hidden;
+      @apply w-full;
+      height: calc(100vh - 8rem); // ! header + footer height
+
+      @screen lg {
+        @apply h-screen;
+      }
+    }
+  }
+}

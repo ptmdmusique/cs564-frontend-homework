@@ -1,0 +1,29 @@
+.app-header {
+  @apply fixed bottom-0 left-0;
+  @apply bg-skin-top;
+  @apply w-full;
+  @apply z-50;
+
+  @screen lg {
+    @apply top-0 bottom-auto;
+  }
+
+  > .content-container {
+    @apply px-mobile-content py-2;
+    @apply flex justify-between;
+    @apply max-w-content;
+    @apply mx-auto;
+
+    .link {
+      @apply flex;
+
+      .dd-icon {
+        @apply mr-2;
+      }
+
+      p {
+        @apply font-medium;
+      }
+    }
+  }
+}
