@@ -1,9 +1,20 @@
+import { Metadata } from "next";
+import Head from "next/head";
 import Image from "next/image";
 import "./home-page.scss";
+
+export const metadata: Metadata = {
+  title: "Home",
+  description: "Welcome to the Game of Thrones Throne Room",
+};
 
 export default function HomePage() {
   return (
     <main className="home-page">
+      <Head>
+        <title>My page title</title>
+      </Head>
+
       <Image
         className="throne-background"
         alt="Throne background"
