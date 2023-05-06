@@ -1,8 +1,15 @@
 "use client";
 
+import {
+  ThroneAPIData,
+  ThroneDataContext,
+  ThroneDataContextType,
+} from "@/contexts/throne-data-context";
 import { initializeIconList } from "@/loader/icon";
+import axios from "axios";
 import "ducduchy-react-components/dist/ducduchy-react-components.cjs.production.min.css";
 import { Cinzel } from "next/font/google";
+import { useEffect, useState } from "react";
 import { AppHeader } from "../components/AppHeader";
 import "./globals.scss";
 
@@ -20,13 +27,33 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const { data, isFetching } = useManageThroneData();
+
   return (
     <html lang="en">
       <body className={cinzel.className}>
         <AppHeader />
 
-        {children}
+        <ThroneDataContext.Provider value={{ data, isFetching }}>
+          {children}
+        </ThroneDataContext.Provider>
       </body>
     </html>
   );
 }
+
+const useManageThroneData = (): ThroneDataContextType => {
+  const [data, setThroneData] = useState<ThroneAPIData[]>([]);
+  const [isFetching, setIsFetching] = useState<boolean>(false);
+
+  useEffect(() => {
+    const throneAPIUrl = "https://thronesapi.com/api/v2/Characters";
+    setIsFetching(true);
+    axios.get<ThroneAPIData[]>(throneAPIUrl).then((response) => {
+      setThroneData(response.data);
+      setIsFetching(false);
+    });
+  }, []);
+
+  return { data, isFetching };
+};

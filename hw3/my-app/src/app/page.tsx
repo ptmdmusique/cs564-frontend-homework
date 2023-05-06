@@ -1,7 +1,7 @@
 import Image from "next/image";
-import "./home.scss";
+import "./home-page.scss";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <main className="home-page">
       <Image

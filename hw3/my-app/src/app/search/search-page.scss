@@ -1,0 +1,24 @@
+.search-page {
+  @apply flex justify-center items-center;
+  @apply h-screen w-screen;
+  @apply text-skin-base;
+
+  > .content-container {
+    @apply max-w-content w-full h-full;
+    @apply px-mobile-content py-4;
+    @apply text-skin-base;
+
+    @screen lg {
+      @apply py-16;
+    }
+
+    > .loading-bar {
+      @apply flex;
+
+      > .dd-icon {
+        @apply w-fit;
+        @apply mr-2;
+      }
+    }
+  }
+}

@@ -53,8 +53,8 @@ body {
   @include extract-color-map($theme);
   @apply text-skin-default;
   @apply overflow-x-hidden;
+  @apply bg-skin-default;
   @apply min-h-screen;
-  @apply bg-skin-top;
   @apply relative;
 
   --mobile-content-padding: theme(padding.5);
