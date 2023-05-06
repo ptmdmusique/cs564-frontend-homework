@@ -48,7 +48,6 @@ module.exports = {
           top: withOpacity("--background-top"),
           "overflow-menu": withOpacity("--background-overflow-menu"),
           active: withOpacity("--background-active"),
-          inverted: withOpacity("--default"),
         },
       },
 

@@ -1,13 +1,14 @@
 .home-page {
   @apply w-screen h-screen;
+  @apply text-skin-base;
   @apply relative;
 
   > .content-container {
     @apply flex flex-col items-center justify-center;
-    @apply bg-skin-inverted bg-opacity-70;
+    @apply bg-skin-top bg-opacity-70;
     @apply absolute top-0 left-0;
-    @apply text-skin-inverted;
     @apply h-screen w-screen;
+    @apply text-skin-base;
 
     > h1 {
       @apply text-lg font-medium;
