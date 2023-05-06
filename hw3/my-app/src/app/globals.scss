@@ -60,4 +60,17 @@ body {
   --mobile-content-padding: theme(padding.5);
   --desktop-content-padding: theme(padding.6);
   --content-max-width: 70rem;
+
+  --app-header-size: theme(fontSize.lg);
+  @screen md {
+    --app-header-size: theme(fontSize.xl);
+  }
+
+  @screen lg {
+    --app-header-size: theme(fontSize.3xl);
+  }
+
+  @screen xl {
+    --app-header-size: theme(fontSize.5xl);
+  }
 }

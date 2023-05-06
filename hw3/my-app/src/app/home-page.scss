@@ -3,32 +3,24 @@
   @apply text-skin-base;
   @apply relative;
 
+  @screen lg {
+    height: calc(100vh - 4rem);
+  }
+
   > .content-container {
     @apply flex flex-col items-center justify-center;
     @apply bg-skin-top bg-opacity-70;
     @apply absolute top-0 left-0;
-    @apply h-screen w-screen;
+    @apply h-full w-screen;
     @apply text-skin-base;
 
     > h1 {
-      @apply text-lg font-medium;
-
-      @screen md {
-        @apply text-xl;
-      }
-
-      @screen lg {
-        @apply text-3xl;
-      }
-
-      @screen xl {
-        @apply text-5xl;
-      }
+      @apply text-header font-semibold;
     }
 
     > p {
-      @apply italic text-xs;
-      @apply mt-2;
+      @apply italic text-xs font-medium;
+      @apply mt-1;
 
       @screen lg {
         @apply text-base;
@@ -38,7 +30,7 @@
 
   > .throne-background {
     @apply absolute top-0 left-0;
-    @apply h-screen w-screen;
+    @apply h-full w-screen;
     @apply object-cover;
   }
 }

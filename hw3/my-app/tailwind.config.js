@@ -59,6 +59,10 @@ module.exports = {
       maxWidth: {
         content: `var(--content-max-width)`,
       },
+
+      fontSize: {
+        header: `var(--app-header-size)`,
+      },
     },
   },
   variants: {
