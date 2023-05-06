@@ -8,8 +8,12 @@
     @apply px-mobile-content py-4;
     @apply text-skin-base;
 
-    @screen lg {
-      @apply py-16;
+    > *:not(:last-child) {
+      @apply mb-6;
+    }
+
+    > h1 {
+      @apply text-header font-semibold text-center;
     }
 
     > .loading-bar {
@@ -18,6 +22,53 @@
       > .dd-icon {
         @apply w-fit;
         @apply mr-2;
+      }
+    }
+
+    > .character-list {
+      @apply grid gap-8;
+      @apply pb-4;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
+      @screen lg {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      }
+
+      > .character-card {
+        @apply drop-shadow-md rounded-md;
+        @apply bg-skin-top;
+        @apply text-center;
+        @apply relative;
+        @apply w-full;
+
+        > img {
+          @apply rounded-t-md;
+          @apply object-cover;
+          @apply w-full h-64;
+        }
+
+        > .content-container {
+          @apply py-4;
+
+          > .full-name {
+            @apply font-medium text-lg;
+          }
+
+          > .title {
+            @apply text-skin-secondary text-sm;
+          }
+        }
+
+        > .family {
+          @apply absolute -top-3 left-0 right-0;
+          @apply text-lg;
+
+          > span {
+            @apply bg-skin-top bg-opacity-50;
+            @apply rounded-md;
+            @apply px-2;
+          }
+        }
       }
     }
   }

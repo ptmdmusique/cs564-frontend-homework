@@ -41,14 +41,18 @@
         @apply w-full;
       }
 
-      &--active::before {
-        @apply w-full;
-      }
-
+      &--active,
       &:focus,
       &:active {
-        @apply ring-offset-2 ring-2 ring-skin-primary;
         @apply outline-none;
+
+        &::before {
+          @apply w-full;
+        }
+      }
+
+      &--active::before {
+        @apply bg-skin-danger;
       }
 
       .dd-icon {

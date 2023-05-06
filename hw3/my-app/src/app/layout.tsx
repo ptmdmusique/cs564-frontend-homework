@@ -44,16 +44,32 @@ export default function RootLayout({
 
 const useManageThroneData = (): ThroneDataContextType => {
   const [data, setThroneData] = useState<ThroneAPIData[]>([]);
-  const [isFetching, setIsFetching] = useState<boolean>(false);
+  const [isFetching, setIsFetching] = useState<boolean>(true);
 
   useEffect(() => {
-    const throneAPIUrl = "https://thronesapi.com/api/v2/Characters";
     setIsFetching(true);
+
+    const throneAPIUrl = "https://thronesapi.com/api/v2/Characters";
     axios.get<ThroneAPIData[]>(throneAPIUrl).then((response) => {
-      setThroneData(response.data);
+      const throneData = response.data.map((character) => {
+        const { family } = character;
+        const goodFamily = badFamilyLookupMap[family] ?? family;
+        return { ...character, family: goodFamily };
+      });
+
+      setThroneData(throneData);
       setIsFetching(false);
     });
   }, []);
 
   return { data, isFetching };
+};
+
+/** Mapping from a possible bad family name to a good one */
+const badFamilyLookupMap: Record<string, string> = {
+  "": "Unknown",
+  None: "Unknown",
+  Unkown: "Unknown",
+  Lorathi: "Lorathi",
+  "House Lanister": "House Lannister",
 };

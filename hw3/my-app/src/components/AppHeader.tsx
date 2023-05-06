@@ -30,6 +30,11 @@ export const AppHeader = () => {
 
 const routeList = [
   {
+    path: "/",
+    icon: ["fas", "dragon"],
+    displayName: "Home",
+  },
+  {
     path: "/houses",
     icon: ["fas", "crown"],
     displayName: "Houses",

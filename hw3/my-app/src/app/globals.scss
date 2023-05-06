@@ -7,7 +7,7 @@ $theme: (
   --text-primary: "rgb(238,239,220)",
   --text-secondary: "rgb(213,209,194)",
 
-  --background: "rgb(52,69,89)",
+  --background: "rgb(64,60,57)",
   --background-top: "rgb(14,14,14)",
 
   // Other
@@ -68,9 +68,5 @@ body {
 
   @screen lg {
     --app-header-size: theme(fontSize.3xl);
-  }
-
-  @screen xl {
-    --app-header-size: theme(fontSize.5xl);
   }
 }

@@ -15,7 +15,18 @@
     @apply text-skin-base;
 
     > h1 {
-      @apply text-header font-semibold;
+      @apply text-lg font-semibold;
+      @screen md {
+        @apply text-xl;
+      }
+
+      @screen lg {
+        @apply text-3xl;
+      }
+
+      @screen xl {
+        @apply text-5xl;
+      }
     }
 
     > p {

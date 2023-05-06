@@ -6,5 +6,5 @@ const { library, config } = require("@fortawesome/fontawesome-svg-core");
 config.autoAddCss = false;
 
 export const initializeIconList = () => {
-  library.add(...[fas.faCrown, fas.faMagnifyingGlass, fas.faFan]);
+  library.add(...[fas.faCrown, fas.faMagnifyingGlass, fas.faFan, fas.faDragon]);
 };
