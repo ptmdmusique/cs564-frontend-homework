@@ -1,0 +1,8 @@
+.loading-bar {
+  @apply flex;
+
+  > .dd-icon {
+    @apply w-fit;
+    @apply mr-2;
+  }
+}

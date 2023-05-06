@@ -1,7 +1,7 @@
 .search-page {
   @apply flex justify-center items-center;
-  @apply h-screen w-screen;
   @apply text-skin-base;
+  @apply w-screen;
 
   > .content-container {
     @apply max-w-content w-full h-full;
@@ -14,15 +14,6 @@
 
     > h1 {
       @apply text-header font-semibold text-center;
-    }
-
-    > .loading-bar {
-      @apply flex;
-
-      > .dd-icon {
-        @apply w-fit;
-        @apply mr-2;
-      }
     }
 
     > .character-list {

@@ -1,7 +1,8 @@
 "use client";
 
+import { LoadingBar } from "@/components/LoadingBar";
 import { useThroneData } from "@/contexts/throne-data-context";
-import { Icon, Input } from "ducduchy-react-components";
+import { Input } from "ducduchy-react-components";
 import Fuse from "fuse.js";
 import Image from "next/image";
 import { useMemo, useState } from "react";
@@ -60,12 +61,3 @@ export default function SearchPage() {
     </div>
   );
 }
-
-const LoadingBar = () => {
-  return (
-    <div className="loading-bar">
-      <Icon icon={["fas", "fan"]} className="fa-flip" />
-      <span>Loading data...</span>
-    </div>
-  );
-};
