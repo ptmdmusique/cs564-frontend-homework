@@ -59,6 +59,7 @@ export const HousesPage = () => {
         ) : (
           <div className="chart-container">
             <Doughnut
+              aria-label="House Information"
               data={displayData}
               options={{
                 color: `rgb(${getComputedStyle(document.body).getPropertyValue(
