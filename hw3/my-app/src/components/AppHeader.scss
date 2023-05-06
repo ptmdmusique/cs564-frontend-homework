@@ -1,0 +1,71 @@
+.app-header {
+  @apply bg-skin-top bg-opacity-80 backdrop-blur-md;
+  @apply fixed bottom-0 left-0;
+  @apply text-skin-base;
+  @apply shadow-md;
+  @apply w-full;
+  @apply z-50;
+
+  @screen lg {
+    @apply sticky top-0 bottom-auto;
+  }
+
+  > .content-container {
+    @apply px-mobile-content py-4;
+    @apply flex justify-around;
+    @apply max-w-content;
+    @apply mx-auto;
+
+    @screen lg {
+      @apply justify-start;
+      @apply py-4;
+
+      > *:not(:last-child) {
+        @apply mr-12;
+      }
+    }
+
+    .link {
+      @apply relative;
+      @apply flex;
+
+      &::before {
+        @apply absolute left-0 -bottom-1;
+        @apply bg-skin-primary;
+        @apply duration-200;
+        @apply h-0.5 w-0;
+        content: "";
+      }
+
+      &:hover::before {
+        @apply w-full;
+      }
+
+      &--active,
+      &:focus,
+      &:active {
+        @apply outline-none;
+
+        &::before {
+          @apply w-full;
+        }
+      }
+
+      &--active::before {
+        @apply bg-skin-danger;
+      }
+
+      .dd-icon {
+        @apply mr-2;
+      }
+
+      p {
+        @apply font-medium;
+
+        @screen lg {
+          @apply text-lg;
+        }
+      }
+    }
+  }
+}

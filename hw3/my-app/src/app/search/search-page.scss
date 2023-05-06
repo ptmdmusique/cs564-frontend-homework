@@ -1,0 +1,72 @@
+.search-page {
+  @apply flex justify-center items-center;
+  @apply text-skin-base;
+  @apply w-screen;
+
+  > .content-container {
+    @apply max-w-content w-full h-full;
+    @apply px-mobile-content py-4;
+    @apply text-skin-base;
+    @apply relative;
+
+    > *:not(:last-child) {
+      @apply mb-6;
+    }
+
+    > h1 {
+      @apply text-header font-semibold text-center;
+    }
+
+    > .search-input {
+      @apply sticky top-16;
+      @apply z-50;
+    }
+
+    > .character-list {
+      @apply grid gap-8;
+      @apply pb-4;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
+      @screen lg {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      }
+
+      > .character-card {
+        @apply drop-shadow-md rounded-md;
+        @apply bg-skin-top;
+        @apply text-center;
+        @apply relative;
+        @apply w-full;
+
+        > img {
+          @apply rounded-t-md;
+          @apply object-cover;
+          @apply w-full h-64;
+        }
+
+        > .content-container {
+          @apply py-4;
+
+          > .full-name {
+            @apply font-medium text-lg;
+          }
+
+          > .title {
+            @apply text-skin-secondary text-sm;
+          }
+        }
+
+        > .family {
+          @apply absolute -top-3 left-0 right-0;
+          @apply text-lg;
+
+          > span {
+            @apply bg-skin-top bg-opacity-50;
+            @apply rounded-md;
+            @apply px-2;
+          }
+        }
+      }
+    }
+  }
+}

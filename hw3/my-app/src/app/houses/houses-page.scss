@@ -1,0 +1,30 @@
+.houses-page {
+  @apply flex justify-center items-center;
+  @apply text-skin-base;
+  @apply w-screen;
+
+  > .content-container {
+    @apply max-w-content w-full h-full;
+    @apply flex flex-col items-center;
+    @apply px-mobile-content py-4;
+    @apply text-skin-base;
+
+    > h1 {
+      @apply text-header font-semibold text-center;
+    }
+
+    > .loading-bar {
+      @apply mt-4;
+    }
+
+    > .chart-container {
+      @apply flex justify-center items-center;
+      @apply w-full;
+      @apply mt-8;
+
+      @screen md {
+        height: 30rem;
+      }
+    }
+  }
+}
