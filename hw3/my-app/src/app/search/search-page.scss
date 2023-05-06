@@ -7,6 +7,7 @@
     @apply max-w-content w-full h-full;
     @apply px-mobile-content py-4;
     @apply text-skin-base;
+    @apply relative;
 
     > *:not(:last-child) {
       @apply mb-6;
@@ -14,6 +15,11 @@
 
     > h1 {
       @apply text-header font-semibold text-center;
+    }
+
+    > .search-input {
+      @apply sticky top-16;
+      @apply z-50;
     }
 
     > .character-list {
