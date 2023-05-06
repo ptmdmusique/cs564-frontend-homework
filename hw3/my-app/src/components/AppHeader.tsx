@@ -1,23 +1,30 @@
 "use client";
 
+import cx from "classnames";
 import { Icon, IconProps } from "ducduchy-react-components";
-import "./AppHeader.scss";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import "./AppHeader.scss";
 
 export const AppHeader = () => {
+  const pathname = usePathname();
+
   return (
-    <div className="app-header">
+    <nav className="app-header">
       <ul className="content-container">
         {routeList.map(({ icon, path, displayName }) => (
           <li key={path}>
-            <Link href={path} className="link">
+            <Link
+              href={path}
+              className={cx("link", { "link--active": pathname === path })}
+            >
               <Icon icon={icon} />
               <p>{displayName}</p>
             </Link>
           </li>
         ))}
       </ul>
-    </div>
+    </nav>
   );
 };
 

@@ -26,7 +26,30 @@
     }
 
     .link {
+      @apply relative;
       @apply flex;
+
+      &::before {
+        @apply absolute left-0 -bottom-1;
+        @apply bg-skin-primary;
+        @apply duration-200;
+        @apply h-0.5 w-0;
+        content: "";
+      }
+
+      &:hover::before {
+        @apply w-full;
+      }
+
+      &--active::before {
+        @apply w-full;
+      }
+
+      &:focus,
+      &:active {
+        @apply ring-offset-2 ring-2 ring-skin-primary;
+        @apply outline-none;
+      }
 
       .dd-icon {
         @apply mr-2;
